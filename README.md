@@ -1,3 +1,3 @@
 # Restaurante-Saboroso
 
-EJS
+Node.js, EJS, Express, Redix, MySql
