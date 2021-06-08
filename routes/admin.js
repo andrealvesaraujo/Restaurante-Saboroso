@@ -99,9 +99,13 @@ router.get("/menus", function(req, res, next) {
             data
         }));
 
-    });
+    });    
 
-    
+});
+
+router.post("/menus", function(req, res, next) {
+
+    res.send(req.body);
 
 });
 
