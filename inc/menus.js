@@ -8,7 +8,7 @@ module.exports = {
         return new Promise((resolve,reject)=>{
 
             conn.query(`
-                SELECT * FROM tb_menus ORDER BY title
+                SELECT * FROM tb_menus ORDER BY id
                 `, (err, results)=>{
 
                 if(err) {
@@ -71,6 +71,28 @@ module.exports = {
             }
 
             conn.query(query, params, (err, results)=>{
+
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+
+            });
+
+        });
+
+    },
+
+    delete(id){
+
+        return new Promise((resolve, reject)=>{
+
+            conn.query(`
+                DELETE FROM tb_menus WHERE id=?
+            `, [
+                id
+            ], (err, results)=>{
 
                 if (err) {
                     reject(err);
