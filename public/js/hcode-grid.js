@@ -2,6 +2,16 @@ class HcodeGrid {
 
     constructor(configs) {
 
+        configs.listeners = Object.assign({
+
+            afterUpdateClick: (e) =>{
+        
+                $('#modal-update').modal('show');
+    
+            },
+
+        }, configs.listeners);
+
         this.options = Object.assign({}, {
             formCreate:'#modal-create form',
             formUpdate:'#modal-update form',
@@ -42,11 +52,21 @@ class HcodeGrid {
 
     }
 
+    fireEvent(name, args) {
+
+        if(typeof this.options.listeners[name] === 'function') 
+            this.options.listeners[name].apply(this, args);
+
+
+    }
+
     initButtons() {
     
         [...document.querySelectorAll(this.options.btnUpdate)].forEach(btn=>{
 
             btn.addEventListener('click', e => {
+
+                this.fireEvent('beforeUpdateClick', [e]);
 
                 let tr = e.path.find(el => {
 
@@ -73,7 +93,7 @@ class HcodeGrid {
 
                 }
 
-                $('#modal-update').modal('show');
+                this.fireEvent('afterUpdateClick', [e]);
 
             });
 
