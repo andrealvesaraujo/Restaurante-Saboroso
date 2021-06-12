@@ -32,16 +32,34 @@ let formSubscribe = document.querySelector("#form-subscribe");
 
 if(formSubscribe) {
 
-    formSubscribe.save({
+    formSubscribe.addEventListener('submit', e=> {
 
-        sucess:()=>{
-            alert("Email cadastrado com sucesso!");
-        },
-        failure:(err)=>{
-            alert("Preencha email corretamente");
-        }
+        e.preventDefault();
 
-    });
+        let formData = new FormData(formSubscribe);
+
+        fetch(formSubscribe.action, {
+            method: formSubscribe.method,
+            body: formData
+        }).then(response => response.json()).then(json=>{
+
+            if(json.error) {
+                
+                alert(json.error);
+
+            } else {
+
+                alert("Email cadastrado com sucesso!");
+
+            } 
+
+            }).catch(err=>{
+
+                alert("Preencha email corretamente" );
+                
+            });   
+            
+    });    
 
 }
 
