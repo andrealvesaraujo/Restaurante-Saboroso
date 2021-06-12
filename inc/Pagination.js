@@ -42,7 +42,6 @@ class Pagination {
               
             });
 
-
         });
 
     }
@@ -57,6 +56,61 @@ class Pagination {
 
     getTotalPages() {
         return this.totalPages;
+    }
+
+    getNavigation(params) {
+        
+        let limitPagesNav = 5;
+        let links = [];
+        let nrstart = 0;
+        let nrend = 0;
+
+        if(this.getTotalPages() < limitPagesNav) {
+            limitPagesNav = this.getTotalPages();
+        }
+        
+        // Se estamos nas primeiras páginas
+        if((this.getCurrentPage() - parseInt(limitPagesNav/2)) < 1) {
+
+            nrstart = 1;
+            nrend = limitPagesNav;
+
+        } 
+        // Se estamos chegando nas últimas páginas
+        else if(this.getCurrentPage() + parseInt(limitPagesNav/2) > this.getTotalPages()) {
+            nrstart = this.getTotalPages() - limitPagesNav;
+            nrend = this.getTotalPages()
+        } else {
+            nrstart = this.getCurrentPage() - parseInt(limitPagesNav/2);
+            nrend = this.getCurrentPage() + parseInt(limitPagesNav/2);
+        }
+
+        for(let x = nrstart; x<=nrend; x++) {
+
+            links.push({
+                text: x,
+                href: '?' + this.getQueryString(Object.assign({}, params, {page:x})),
+                active: (x === this.getCurrentPage())
+            });
+
+        }
+
+        return links;
+        
+    }
+
+    getQueryString(params) {
+
+        let queryString=[];
+
+        for(let name in params) {
+
+            queryString.push(`${name}=${params[name]}`);
+
+        }
+
+        return queryString.join("&");
+
     }
 
 }
