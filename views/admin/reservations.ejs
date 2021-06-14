@@ -233,17 +233,7 @@
 
   let grafico = new Chart(document.querySelector("#chart").getContext("2d"), {
     type: 'line',
-    data: {
-      labels: [],
-      datasets: [{
-        data: [],
-        label: 'Reservas',
-        backgroundColor: 'rgb(54,162,235)',
-        borderColor: 'rgb(54,162,235)',
-        fill: true,
-        pointBackgroundColor: '#fff'        
-      }]
-    },
+    data: {},
     options: {
       tooltips: {
         mode: 'index',
@@ -271,10 +261,17 @@
   fetch(`/admin/reservations/chart${window.location.search}`)
     .then(response => response.json())
     .then(json => {
-
-
-      grafico.data.labels = json.months;
-      grafico.data.datasets[0].data = json.values;
+      grafico.data = {
+        labels: json.months,
+        datasets: [{
+          data: json.values,
+          label: 'Reservas',
+          backgroundColor: 'rgb(54,162,235)',
+          borderColor: 'rgb(54,162,235)',
+          fill: true,
+          pointBackgroundColor: '#fff'        
+        }]
+      };
 
       grafico.update();
 

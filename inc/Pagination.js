@@ -76,7 +76,6 @@ class Pagination {
             nrend = limitPagesNav;
 
         } 
-        // 3, 5(2,5), 4
         // Se estamos chegando nas últimas páginas
         else if((this.getCurrentPage() + parseInt(limitPagesNav/2)) > this.getTotalPages()) {
             nrstart = ((this.getTotalPages() - limitPagesNav) === 0) ? 1 : this.getTotalPages() - limitPagesNav ;
