@@ -19,3 +19,20 @@ Lista de recursos usados para este projeto
 | Chart.js | https://www.chartjs.org/ |
 | Socket.io | https://socket.io/  |
 | MySQL | https://www.mysql.com/ |
+
+### Instalação
+
+```
+npm install
+```
+
+### Executando servidor
+
+```
+npm start
+
+```
+Acesse: 
+
+- http://localhost:3000/ --> Área pública
+- http://localhost:3000/admin --> Área do administrador 
