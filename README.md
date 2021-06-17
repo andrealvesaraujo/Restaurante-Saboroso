@@ -3,6 +3,7 @@
 Projeto de Restaurante desenvolvida no Curso Completo de JavaScript na Udemy.com em 2021
 (https://www.udemy.com/course/javascript-curso-completo/). 
 
+
 ### Recursos Usados
 
 Lista de recursos usados para este projeto
@@ -19,6 +20,16 @@ Lista de recursos usados para este projeto
 | Chart.js | https://www.chartjs.org/ |
 | Socket.io | https://socket.io/  |
 | MySQL | https://www.mysql.com/ |
+
+#### Área Pública
+
+![tempsnip](https://user-images.githubusercontent.com/18336972/122315653-db33a580-cef0-11eb-8388-28ccfaa753bc.png)
+
+
+#### Área Administrativa
+
+![screencapture-localhost-3000-admin-2021-06-16-22_17_03](https://user-images.githubusercontent.com/18336972/122315661-dec72c80-cef0-11eb-85f3-0ba351df1c51.png)
+
 
 ### Banco MySql
 
@@ -42,4 +53,6 @@ Acesse:
 
 - http://localhost:3000/ --> Área pública
 - http://localhost:3000/admin --> Área do administrador 
+  --> Logue com o usuário padrão: joao@hcode.com.br e senha: 123456 
+  --> Pode mudar isso no banco ou na area de usuários
 
