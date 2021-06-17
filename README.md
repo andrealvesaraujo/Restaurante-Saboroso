@@ -20,6 +20,12 @@ Lista de recursos usados para este projeto
 | Socket.io | https://socket.io/  |
 | MySQL | https://www.mysql.com/ |
 
+### Banco MySql
+
+1. Crie o seu banco de dados do MySql ao rodar "Criacao_BancoDados_RestauranteSaboroso.sql"
+
+2. Para inserir amostras de reserva, execute "Insercao_tb_reservations_500.sql"
+
 ### Instalação
 
 ```
@@ -30,9 +36,10 @@ npm install
 
 ```
 npm start
-
 ```
+
 Acesse: 
 
 - http://localhost:3000/ --> Área pública
 - http://localhost:3000/admin --> Área do administrador 
+
